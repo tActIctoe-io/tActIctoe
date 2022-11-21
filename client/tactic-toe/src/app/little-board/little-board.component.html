@@ -1,0 +1,29 @@
+<div class="{{state===square ? 'board active':'board'}}">
+    <div class="square" (click)="mousePressed(0,0)">
+        <p>{{values[0][0]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(0,1)">
+        <p>{{values[0][1]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(0,2)">
+        <p>{{values[0][2]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(1,0)">
+        <p>{{values[1][0]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(1,1)">
+        <p>{{values[1][1]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(1,2)">
+        <p>{{values[1][2]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(2,0)">
+        <p>{{values[2][0]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(2,1)">
+        <p>{{values[2][1]}}</p>
+    </div>
+    <div class="square" (click)="mousePressed(2,2)">
+        <p>{{values[2][2]}}</p>
+    </div>
+</div>

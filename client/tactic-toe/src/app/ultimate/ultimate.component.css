@@ -1,0 +1,19 @@
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-board{
+    height: 400px;
+    width:400px;
+    background-color: white;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-start;
+    overflow: none;
+    gap:1px
+}
+

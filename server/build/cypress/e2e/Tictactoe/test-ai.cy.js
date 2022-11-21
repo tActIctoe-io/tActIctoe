@@ -15,7 +15,7 @@ describe('Register and log in', () => {
         cy.get('#login-password').type('test1234');
         cy.get('#login-button').click();
     });
-    it('Create AI name test1 and train it', () => {
+    it('Create AI name test1 and delete it', () => {
         //CREATE
         cy.get('#name').type('test1').should('have.value', 'test1');
         cy.get('#color').should('have.value', '0: red');

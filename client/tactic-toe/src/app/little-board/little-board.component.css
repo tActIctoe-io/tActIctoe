@@ -1,0 +1,23 @@
+.board{
+    height:131px;
+    width:131px;
+    background-color: beige;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-start;
+    overflow: none;
+    gap:1px
+}
+
+.square{
+    height:40px;
+    width:40px;
+    background-color: aquamarine;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active{
+    background-color:chocolate;
+}

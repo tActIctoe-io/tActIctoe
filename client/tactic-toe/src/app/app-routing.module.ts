@@ -6,7 +6,7 @@ import { BattleComponent } from './battle/battle.component';
 import { BoardComponent } from './board/board.component';
 import { CreateAnAiComponent } from './create-an-ai/create-an-ai.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
-
+import { UltimateComponent } from './ultimate/ultimate.component';
 import { LoginComponent } from './login/login.component';
 import { MatchComponent } from './match/match.component';
 import { RegisterComponent } from './register/register.component';
@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'create', component: CreateAnAiComponent, canActivate: [AuthGuard]},
   { path: 'yourai', component: CreateAnAiComponent, canActivate: [AuthGuard]},
   {path: 'train/:id', component: TrainComponent, canActivate: [AuthGuard]},
+  {path: 'ultimate', component: UltimateComponent},
   {path: 'edit/:id', component: EditPageComponent, canActivate: [AuthGuard]},
   {path: 'battle', component: BattleComponent, canActivate: [AuthGuard]}, // TODO: Add guard for number of ai (can't access with no AI)
   {path: 'battle/:id', component: MatchComponent, canActivate: [AuthGuard]}, // TODO: Add guard for number of ai (can't access with no AI)
