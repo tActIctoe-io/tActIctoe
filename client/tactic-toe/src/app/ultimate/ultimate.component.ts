@@ -16,6 +16,7 @@ export class UltimateComponent implements OnInit {
   dictNextSquare:any = {'00':0,'01':1,'02':2,'10':3,'11':4,'12':5,'20':6,'21':7,'22':8};
   nextSquareToPlay:any=4;
   ai:any = 'X';
+  EveryState:any = [0,0,0,0,0,0,0,0,0]
   human:any = 'O';
   currentPlayer:any = this.human;
   board:any=[[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']],[['','',''],['','',''],['','','']]];
@@ -48,12 +49,13 @@ export class UltimateComponent implements OnInit {
         // Is the spot available?
         if (this.board[this.nextSquareToPlay][i][j] == '') {
           this.board[this.nextSquareToPlay][i][j] = this.ai;
-          let score = this.minimax(this.board[this.nextSquareToPlay], 0, false);
+          let score = this.minimax(this.board[this.nextSquareToPlay], 0, false,this.nextSquareToPlay);
           this.board[this.nextSquareToPlay][i][j] = '';
           if (score > bestScore) {
             bestScore = score;
             move = { i, j };
           }
+          this.EveryState = [0,0,0,0,0,0,0,0,0];
         }
       }
     }
@@ -62,10 +64,13 @@ export class UltimateComponent implements OnInit {
     console.log(move.i,move.j)
     this.nextSquareToPlay=this.dictNextSquare[`${move.i}${move.j}`];
     this.currentPlayer = this.human;
+    
   }
 
 
-  minimax(board:any, depth:any, isMaximizing:any) {
+  minimax(board:any, depth:any, isMaximizing:any,nextSquare:any) {
+    if(this.EveryState[nextSquare] === 3)
+    if(depth===3) return 0;//BLOCKING JUst 3 thoughts for each board
     let result = this.checkWinner(board);
    
     console.log(result)
@@ -80,7 +85,11 @@ export class UltimateComponent implements OnInit {
           // Is the spot available?
           if (board[i][j] == '') {
             board[i][j] = this.ai;
-            let score = this.minimax(board, depth + 1, false);
+            let nextSquare = this.dictNextSquare[`${i}${j}`];
+            if(this.EveryState[nextSquare] === 0){
+              depth=0;
+            }
+            let score = this.minimax(this.board[nextSquare], depth + 1, false,nextSquare);
             board[i][j] = '';
             if(bestScore<score) bestScore=score
           }
@@ -94,7 +103,8 @@ export class UltimateComponent implements OnInit {
           // Is the spot available?
           if (board[i][j] == '') {
             board[i][j] = this.human;
-            let score = this.minimax(board, depth + 1, true);
+            let nextSquare = this.dictNextSquare[`${i}${j}`];
+            let score = this.minimax(this.board[nextSquare], depth + 1, true,nextSquare);
             board[i][j] = '';
             if(bestScore>score) bestScore=score
           }
