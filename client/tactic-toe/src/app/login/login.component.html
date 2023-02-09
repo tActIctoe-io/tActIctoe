@@ -7,7 +7,7 @@
         <p *ngIf="loginForm.controls.userEmail.errors?.['email']">Email is not valid</p>
       </div>
       <ng-template #validEmail><label for="email">Email</label></ng-template>
-      <input id="login-email" type="email" name="email" formControlName="userEmail">
+      <span><input id="login-email" type="email" name="email" class="basic-slide"formControlName="userEmail"><label for="email">email</label></span>
       
       <div class='error' *ngIf="loginForm.controls.userPassword.invalid && (loginForm.controls.userPassword.dirty || loginForm.controls.userPassword.touched); else validPassword">
         <p *ngIf="loginForm.controls.userPassword.errors?.['required']">Password is required</p>
