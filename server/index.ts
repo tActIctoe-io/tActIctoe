@@ -7,7 +7,7 @@ const cors = require('cors');
 const session = require('express-session');
 const { passport } = require('./utils/passport')
 const { db } = require('./models/index');
-const functions = require('firebase-functions');
+
 
 import { User } from './models/users'
 declare module 'express' {
