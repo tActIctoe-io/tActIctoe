@@ -79,3 +79,5 @@ async function start() {
 }
 
 start();
+
+exports.backend = app;

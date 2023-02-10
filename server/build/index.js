@@ -71,4 +71,4 @@ async function start() {
     }
 }
 start();
-exports.app = functions.https.onRequest(app);
+exports.backend = app;
