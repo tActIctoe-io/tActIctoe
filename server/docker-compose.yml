@@ -7,7 +7,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://josepabellanapuyol:pass@postgres:5432/tactictoe
+      DATABASE_URL: postgres://josepabellanapuyol@postgres:5432/db
       NODE_ENV: development
       PORT: 3001
     ports:
@@ -22,6 +22,6 @@ services:
     ports:
       - "35432:5432"
     environment:
-      POSTGRES_USER: josepabellanapuyol
+      POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
-      POSTGRES_DB: tactictoe
+      POSTGRES_DB: db
