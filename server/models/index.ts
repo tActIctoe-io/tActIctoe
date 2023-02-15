@@ -2,11 +2,7 @@ const Sequelize = require('sequelize');
 require('dotenv').config()
 
 
-const sequelize = new Sequelize(process.env.DATABASE, process.env.USERNAME, process.env.PASSWORD, {
-  host: process.env.HOST || 'localhost',
-  dialect: process.env.DIALECT || 'postgres',
-  logging: false
-});
+const sequelize = new Sequelize('postgres://josepabellanapuyol:pass@database:5432/tactictoe');
 const db:any = {};
 db.Users = require('./users')(sequelize, Sequelize.DataTypes);
 
