@@ -8,7 +8,6 @@ const session = require('express-session');
 const { passport } = require('./utils/passport')
 const { db } = require('./models/index');
 
-
 import { User } from './models/users'
 declare module 'express' {
   interface Request {
@@ -43,11 +42,11 @@ const io = require('socket.io')(http, {
 });
 require('./utils/socket')(io);
 
-const port = process.env.PORTNUM || 3000;
+const port = process.env.PORTNUM || 3001;
 const SECRET = process.env.SECRET || 'this is not very secure';
 
 const corsConfig = {
-  origin: [process.env.URL || 'http://localhost:3000', process.env.CLIENTURL || 'http://localhost:4200'],
+  origin: [process.env.URL || 'http://localhost:3001', process.env.CLIENTURL || 'http://localhost:4200'],
   credentials: true,
 }
 app.use(cors(corsConfig));
@@ -69,7 +68,7 @@ app.use(router);
 
 async function start() {
   try {
-    // await db.sequelize.sync();
+    await db.sequelize.sync();
     http.listen(port, () => {
       console.log(`Listening on port: ${port}`)
     })
